@@ -1,9 +1,12 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express()
 
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+
 app.get('*', (req, res) => {
-  console.log('wenaa')
-  res.send({ mensaje: 'Chanchito feliz uwu' })
+  res.send('Hola Mundo')
 })
 
 module.exports = app;

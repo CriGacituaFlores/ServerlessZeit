@@ -6,5 +6,8 @@
       "src": "/api/(.*)",
       "dest": "api/index.js"
     }
-  ]
+  ],
+  "env": {
+    "MONGODB_URI": "@mongodb-uri"
+  }
 }

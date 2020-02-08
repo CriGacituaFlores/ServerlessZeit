@@ -1,32 +1,32 @@
 const express = require('express')
-const Orders = require('../models/Orders')
+const Meals = require('../models/Meals')
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  Orders.find()
+  Meals.find()
         .exec()
         .then(x => res.status(200).send(x))
 })
 
 router.get('/:id', (req, res) => {
-  Orders.findById(req.params.id)
+  Meals.findById(req.params.id)
         .exec()
         .then(x => res.status(200).send(x))
 })
 
 router.post('/', (req, res) => {
-  Orders.create(req.body)
+  Meals.create(req.body)
         .then(x => res.status(201)
         .send(x))
 })
 
 router.put('/:id', (req, res) => {
-  Orders.findByIdAndUpdate(req.body.id, req.body)
+  Meals.findByIdAndUpdate(req.body.id, req.body)
     .then(x => res.status(204).send(x))
 })
 
 router.delete('/:id', (req, res) => {
-  Orders.findOneAndDelete(req.paranms.id)
+  Meals.findOneAndDelete(req.paranms.id)
     .exec().then(() => res.sendStatus(204))
 })
 

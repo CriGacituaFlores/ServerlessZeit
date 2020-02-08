@@ -21,12 +21,12 @@ router.post('/', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  Meals.findByIdAndUpdate(req.body.id, req.body)
-    .then(x => res.status(204).send(x))
+  Meals.findByIdAndUpdate(req.params.id, req.body)
+    .then(x => res.sendStatus(204))
 })
 
 router.delete('/:id', (req, res) => {
-  Meals.findOneAndDelete(req.paranms.id)
+  Meals.findOneAndDelete(req.params.id)
     .exec().then(() => res.sendStatus(204))
 })
 
